@@ -1,4 +1,6 @@
 # Dynamic-visulization-in-phase-I-clinical-trials
+# Description: Apply the popular R package ggvis to PK data set to buide up dynamic visulization in phase I clinical trials, later will use Rshiny together ,in order to make dynamic reporting according to different orginical datasets
+# install related packages
 install.packages("dplyr")
 install.packages("ggvis")
 install.packages("readxl")
@@ -60,7 +62,7 @@ base=pop1 %>%
 
 
 
-/*Graph by treatment, so you can compare the Cmax and Tmax for those two treatments*/
+# Graph by treatment, so you can compare the Cmax and Tmax for those two treatments
 
 
 pop2=pop%>%
