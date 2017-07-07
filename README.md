@@ -7,13 +7,21 @@ library("shiny")
 library("dplyr")
 library("ggvis")
 library("readxl")
-pop=read_excel("pk study.xlsx")  #change it according to your own data file
 
+ # change it according to your own data file
+
+pop=read_excel("pk study.xlsx")   
+
+ # using str() and glimpse() to get a big picture of your data set
+ 
 str(pop)
-glimpse(pop) # using str() and glimpse() to get a big picture of your data set
+glimpse(pop)     
 
+ # using subst() to get a specific subset
 
-pop1=subset(pop, subset= (SUBJECT=="003"& COHORT=="1"&PERIOD=="1"&ANALYTE=="9-OH-RISPERIDONE")) #using subst() to get a specific subset 
+pop1=subset(pop, subset= (SUBJECT=="003"& COHORT=="1"&PERIOD=="1"&ANALYTE=="9-OH-RISPERIDONE"))  
+
+# when you click each dots on the plot, the corresponding value of Time and concentraion will show up
 
 if (interactive()) {
     all_values <- function(x) {
@@ -34,11 +42,13 @@ base=pop1 %>%
                                    choices = c("red", "blue", "purple",
                                                "yellow", "green "))
               )%>%
+              
   add_axis("x",
            title="Time (hour)",
            values=c(0,200,400,600,800,1000,1200,1400,1600),
            subdivide=200, 
            orient="bottom")%>% 
+           
   add_axis("y",
            title="Plasma Concentration (ng/ml)",
            orient="left")
@@ -50,7 +60,7 @@ base=pop1 %>%
 
 
 
-/*Graph by treatment, so you can compare the Cmax and Tmax*/
+/*Graph by treatment, so you can compare the Cmax and Tmax for those two treatments*/
 
 
 pop2=pop%>%
