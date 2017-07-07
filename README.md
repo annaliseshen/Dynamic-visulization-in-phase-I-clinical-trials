@@ -67,7 +67,7 @@ if (interactive()) {
          paste0(names(x), ": ", format(x), collapse = "<br />")
      }
 base=df_list[[4]]%>%
-  group_by(TREATMENT )%>%
+  group_by(TREATMENT)%>%
   mutate(Time1= as.numeric(TIME), conc1= as.numeric(CONCENTRATION) )%>%
   
   ggvis(~Time1, ~conc1,fillOpacity := 0.5,stroke = ~TREATMENT) %>%
